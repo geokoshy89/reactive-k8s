@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: reactive-app-service
+  labels:
+     componet: reactive-java
+spec:
+  selector:
+    component: reactive-java
+  ports:
+   - protocol: 'TCP'
+     port: 8345
+     targetPort: 8080
+  type: ClusterIP

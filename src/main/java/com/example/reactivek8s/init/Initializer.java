@@ -3,6 +3,7 @@ package com.example.reactivek8s.init;
 import com.example.reactivek8s.entity.Student;
 import com.example.reactivek8s.repository.StudentRepository;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,9 +13,9 @@ import lombok.RequiredArgsConstructor;
 import reactor.core.publisher.Flux;
 
 @Configuration
-@RequiredArgsConstructor
 public class Initializer{
-    private final StudentRepository repository;
+    @Autowired
+    private StudentRepository repository;
     @Bean
     public ApplicationRunner init(DatabaseClient databaseClient){
         return args->

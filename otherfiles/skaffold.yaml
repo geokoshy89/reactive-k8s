@@ -1,0 +1,19 @@
+apiVersion: skaffold/v2beta17
+kind: Config
+build:
+  local:
+    push: true
+  artifacts:
+    - image:  <image-name>
+      context: reactive-k8s
+      buildpacks:
+        builder: paketobuildpacks/builder:base
+        dependencies:
+         paths:
+           - src
+           - pom.xml
+deploy:
+  kustomize:
+    paths:
+      - reactive-k8s/k8s
+      - k8s

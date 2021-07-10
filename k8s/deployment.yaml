@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: reactive-java-app
+spec:
+  selector:
+    matchLabels:
+      component: reactive-java
+  template:
+    metadata:
+      labels:
+        component: reactive-java
+    spec:
+      containers:
+        - name: reactive-app
+          image: <image-name>
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
