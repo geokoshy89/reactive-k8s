@@ -1,4 +1,4 @@
-package com.example.reactivek8s.repository;
+package com.example.reactivek8s.init;
 
 import com.example.reactivek8s.entity.Student;
 import com.example.reactivek8s.repository.StudentRepository;
@@ -23,6 +23,7 @@ public class Initializer{
                  .thenMany(Flux.just("George","Koshy","Rubin","Sara","Kmpt","Mary","Johan","Janet")
                 ).
                 map(name->new Student(null,name))
+                .flatMap(student->repository.save(student))
                 .thenMany(repository.findAll())
                 .subscribe(System.out::println);
                     
