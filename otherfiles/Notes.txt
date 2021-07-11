@@ -1,0 +1,7 @@
+The DNS labelling and enabling tls can be done in azure .But 
+the static ip assignment has to be done seperately ,after this the azure UI enables us to
+set a label for th static ip from the gui itself. After this we can enable tls by using 
+certmanager ,cloudissuer resource where Lets cert issuer is configured. After this the
+ingress is to be updated with tls and secrets certs.This is well described in below docs
+from azure:
+https://docs.microsoft.com/en-us/azure/aks/ingress-static-ip
